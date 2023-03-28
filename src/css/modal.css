@@ -1,0 +1,56 @@
+.modal-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 110;
+}
+
+.modal-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--gray);
+    padding: 40px;
+    border-radius: 5px;
+}
+
+.modal-button, .modal-input {
+    margin: 10px;
+}
+
+.modal-button {
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--black);
+    color: var(--white);
+    transition: 0.5s all;
+}
+
+.modal-button:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.modal-input {
+    outline: none;
+    border: none;
+    height: 30px;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+
+.modal-close-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

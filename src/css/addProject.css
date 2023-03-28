@@ -1,0 +1,26 @@
+.add-project-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-project-button:hover .add-project-title {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.add-project-title {
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    margin: 2px;
+    color: var(--white);
+    padding: 6px;
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+}

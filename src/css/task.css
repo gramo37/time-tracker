@@ -1,0 +1,41 @@
+.task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    background-color: var(--gray);
+    margin: 7px;
+    border-radius: 5px;
+}
+
+.task-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-task-button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.edit-task-button:hover .edit-task-title {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.edit-task-title {
+    position: absolute;
+    top: 30px;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    margin: 2px;
+    color: var(--white);
+    padding: 6px;
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+}

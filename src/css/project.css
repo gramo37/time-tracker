@@ -1,0 +1,33 @@
+.project-container {
+    background-color: var(--white);
+    padding: 14px;
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.project-left {
+    width: 30%;
+    margin-right: 10px;
+}
+
+.project-left > h1 {
+    font-family: var(--secondary-font);
+    font-size: var(--secondary-font-size);
+}
+
+.project-right {
+    width: 70%;
+}
+
+@media only screen and (max-width: 950px){
+    .project-container {
+        flex-direction: column;
+    }
+    .project-left, .project-right {
+        width: 100%;
+        margin: 10px;
+    }
+}
