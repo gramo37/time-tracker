@@ -3,19 +3,14 @@ import AddProject from '../components/AddProject'
 import AddProjectModal from '../components/AddProjectModal'
 import Project from '../components/Project'
 import ProjectTitle from '../components/ProjectTitle'
-
+import { useLocalStorage } from "../hooks/useLocalStorage"
 export const DataContext = createContext()
 
 const Dashboard = () => {
 
   const [showAddProjectModal, setshowAddProjectModal] = useState(false)
-  const [data, setData] = useState(JSON.parse(window.localStorage.getItem('time-tracker')) || {})
+  const [data, setData] = useLocalStorage('time-tracker', {})
 
-  useEffect(() => {
-    let temp = JSON.stringify(data)
-    window.localStorage.setItem('time-tracker', temp)
-  }, [data])
-  
   function deleteTask(taskId, projectId) {
     let temp = data[projectId]
     delete temp[taskId];
