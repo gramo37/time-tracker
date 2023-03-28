@@ -5,7 +5,7 @@ import "../css/task.css"
 import EditTaskModal from './EditTaskModal';
 import { DataContext } from '../pages/Dashboard';
 
-const Task = ({taskName, duration, showButton, id}) => {
+const Task = ({taskName, duration, showButton, id, projectId}) => {
 
   const [showEditProjectModal, setshowEditProjectModal] = useState(false)
 
@@ -13,13 +13,13 @@ const Task = ({taskName, duration, showButton, id}) => {
 
   const deleteClicked = (e) => {
     e.preventDefault()
-    deleteTask(id)
+    deleteTask(id, projectId)
   }
 
   return (
     <>
       <div className='task-container'>
-        {showEditProjectModal && <EditTaskModal id={id} editTask={editTask} toggleModal={() => setshowEditProjectModal(!showEditProjectModal)} />}
+        {showEditProjectModal && <EditTaskModal id={id} projectId={projectId} editTask={editTask} toggleModal={() => setshowEditProjectModal(!showEditProjectModal)} />}
         <h3>{taskName}</h3>
         <h4>{duration}</h4>
         <div style={{opacity: showButton ? 1 : 0, pointerEvents: showButton ? "all" : "none"}} className='task-buttons-container'>

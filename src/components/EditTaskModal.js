@@ -1,17 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import "../css/modal.css"
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { DataContext } from '../pages/Dashboard';
 
-const EditTaskModal = ({ toggleModal, editTask, id }) => {
+const EditTaskModal = ({ toggleModal, editTask, projectId, id }) => {
+
+  const {data} = useContext(DataContext)
 
   const [task, setTask] = useState({
-    name: "",
-    duration: ""
+    name: data[projectId][id].name,
+    duration: data[projectId][id].duration
   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    editTask(id, task)
+    console.log(task)
+    editTask(projectId, id, task)
   }
 
   const handleChange = (e) => {
@@ -23,8 +27,8 @@ const EditTaskModal = ({ toggleModal, editTask, id }) => {
     <div className='modal-container'>
       <div className='modal-close-button' onClick={toggleModal}><AiFillCloseCircle size={40} /></div>
       <form className='modal-form-container' onChange={handleChange}>
-        <input className='modal-input' placeholder='Enter Task Name' name="name" />
-        <input className='modal-input' placeholder='Duration' name="duration" />
+        <input className='modal-input' placeholder='Enter Task Name' name="name" value={task?.name} />
+        <input className='modal-input' placeholder='Duration' name="duration" value={task?.duration} />
         <button onClick={handleSubmit} className='modal-button'>Submit</button>
       </form>
     </div>
