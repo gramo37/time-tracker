@@ -14,8 +14,8 @@ const EditTaskModal = ({ toggleModal, editTask, projectId, id }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(task)
     editTask(projectId, id, task)
+    toggleModal()
   }
 
   const handleChange = (e) => {

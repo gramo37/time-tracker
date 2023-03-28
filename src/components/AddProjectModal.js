@@ -9,6 +9,7 @@ const AddProjectModal = ({toggleModal, addProject}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     addProject(projectName)
+    toggleModal()
   }
 
   const handleChange = (e) => {

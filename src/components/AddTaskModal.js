@@ -12,6 +12,7 @@ const AddTaskModal = ({ toggleModal, addTask, id }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         addTask(id, task)
+        toggleModal()
       }
     
       const handleChange = (e) => {

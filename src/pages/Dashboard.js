@@ -13,20 +13,17 @@ const Dashboard = () => {
   const [data, setData] = useState({})
 
   function deleteTask(taskId, projectId) {
-    console.log("delete", taskId, projectId)
     let temp = data[projectId]
     delete temp[taskId];
     setData({ ...data, [`${projectId}`]: { ...temp } })
   }
 
   function editTask(projectId, taskId, task) {
-    console.log("edit", projectId, taskId, task)
     let temp = data[projectId]
     setData({ ...data, [`${projectId}`]: { ...temp, [`${taskId}`]: task } })
   }
 
   function addTask(projectId, task) {
-    console.log("add", projectId, task)
     let temp = data
     let uuid = Math.random().toString(36).slice(2);
     temp[projectId][`task${uuid}`] = task
@@ -39,8 +36,6 @@ const Dashboard = () => {
     temp[project] = {}
     setData({ ...data, ...temp })
   }
-
-  console.log(data)
 
   return (
     <DataContext.Provider value={{ data, deleteTask, editTask, addProject, addTask }}>
