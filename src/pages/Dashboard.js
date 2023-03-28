@@ -9,9 +9,13 @@ export const DataContext = createContext()
 const Dashboard = () => {
 
   const [showAddProjectModal, setshowAddProjectModal] = useState(false)
+  const [data, setData] = useState(JSON.parse(window.localStorage.getItem('time-tracker')) || {})
 
-  const [data, setData] = useState({})
-
+  useEffect(() => {
+    let temp = JSON.stringify(data)
+    window.localStorage.setItem('time-tracker', temp)
+  }, [data])
+  
   function deleteTask(taskId, projectId) {
     let temp = data[projectId]
     delete temp[taskId];
@@ -45,7 +49,7 @@ const Dashboard = () => {
         <div className='projects-container'>
           {Object.entries(data).map((item) => {
             const [key, value] = item
-            return <Project projectName={key} tasks={value} id={key} />
+            return <Project key={key} projectName={key} tasks={value} id={key} />
           })}
         </div>
         <AddProject toggleModal={() => setshowAddProjectModal(!showAddProjectModal)} />
